@@ -112,8 +112,8 @@ CREATE TABLE ProductionOrder (
   Id              number(10), 
   CustomerOrderId number(10) NOT NULL, 
   ProductId       varchar2(255) NOT NULL, 
-  "Date"          date NOT NULL, 
   Quantity        number(6) NOT NULL, 
+  ProductionDate  date NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE RawMaterial (
   Id   varchar2(255) NOT NULL, 
