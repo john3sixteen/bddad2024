@@ -81,7 +81,7 @@ INSERT INTO Material(Id,Name) VALUES(4, 'glass');
 
 INSERT INTO MeasurementUnit(Id,Unit) VALUES(1, 'cm');
 INSERT INTO MeasurementUnit(Id,Unit) VALUES(2, 'l');
-INSERT INTO MeasurementUnit(Id,Unit) VALUES(3, 'mm');~
+INSERT INTO MeasurementUnit(Id,Unit) VALUES(3, 'mm');
 
 
 INSERT INTO Product_Material(ProductId,MaterialId) VALUES('AS12945T22', 1);
@@ -177,19 +177,34 @@ INSERT INTO CustomerOrder(Id,CustomerId,AddressId,DateOrder,DateDelivery) VALUES
 INSERT INTO CustomerOrder(Id,CustomerId,AddressId,DateOrder,DateDelivery) VALUES(7, 456, NULL, TO_DATE('21/09/2024', 'dd/MM/YYYY'), TO_DATE('26/09/2024', 'dd/MM/YYYY'));
 
 
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(1, 'AS12945S22', 5);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(1, 'AS12945S20', 15);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(2, 'AS12945S22', 10);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(2, 'AS12945P17', 20);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(3, 'AS12945S22', 10);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(3, 'AS12945S20', 10);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(4, 'AS12945S20', 24);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(4, 'AS12945S22', 16);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(4, 'AS12945S17', 8);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(5, 'AS12945S22', 12);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(6, 'AS12945S17', 8);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(6, 'AS12945P17', 16);
-INSERT INTO ProductionOrder(OrderId,ProductId,Quantity) VALUES(7, 'AS12945S22', 8);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(1, 'AS12945S22', 5);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(1, 'AS12945S20', 15);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(2, 'AS12945S22', 10);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(2, 'AS12945P17', 20);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(3, 'AS12945S22', 10);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(3, 'AS12945S20', 10);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(4, 'AS12945S20', 24);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(4, 'AS12945S22', 16);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(4, 'AS12945S17', 8);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(5, 'AS12945S22', 12);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(6, 'AS12945S17', 8);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(6, 'AS12945P17', 16);
+INSERT INTO CustomerOrderLine(CustomerOrderId,ProductId,Quantity) VALUES(7, 'AS12945S22', 8);~
+
+
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(1,1, AS12945S22, 5, TO_DATE('15/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(2,1, AS12945S20, 15, TO_DATE('15/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(3,2, AS12945S22, 10, TO_DATE('15/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(4,2, AS12945P17, 20, TO_DATE('15/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(5,3, AS12945S22, 10, TO_DATE('15/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(6,3, AS12945S20, 10, TO_DATE('15/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(7,4, AS12945S20, 24, TO_DATE('18/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(8,4, AS12945S22, 16, TO_DATE('18/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(9,4, AS12945S17, 8, TO_DATE('18/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(10,5, AS12945S22, 12, TO_DATE('18/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(11,6, AS12945S17, 8, TO_DATE('18/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(12,6, AS12945P17, 16, TO_DATE('18/09/2024', 'dd/MM/YYYY'));
+INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,Date) VALUES(13,7, AS12945S22, 8, TO_DATE('21/09/2024', 'dd/MM/YYYY'));
 
 
 INSERT INTO BOM(Id,ProductId,Version) VALUES(1,'AS12945S22', 1);
