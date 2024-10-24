@@ -1,12 +1,12 @@
 CREATE TABLE Address (
-  Id        number(10) , 
+  Id        number(10), 
   Street    varchar2(255) NOT NULL, 
   ZipCode   varchar2(15) NOT NULL, 
   TownId    number(10) NOT NULL, 
   CountryId number(10) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE BOM (
-  Id        number(10) , 
+  Id        number(10), 
   ProductId varchar2(255) NOT NULL, 
   Version   number(5) NOT NULL, 
   PRIMARY KEY (Id));
@@ -18,7 +18,7 @@ CREATE TABLE BOO (
   OperationId, 
   Operation_SequenceNumber));
 CREATE TABLE Colour (
-  Id   number(5) , 
+  Id   number(5), 
   Name varchar2(100) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE Component (
@@ -26,11 +26,11 @@ CREATE TABLE Component (
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE Country (
-  Id   number(10) , 
+  Id   number(10), 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE CustomerOrder (
-  Id           number(10) , 
+  Id           number(10), 
   CustomerId   number(15) NOT NULL, 
   AddressId    number(10) NOT NULL, 
   DateOrder    date NOT NULL, 
@@ -43,11 +43,11 @@ CREATE TABLE CustomerOrderLine (
   PRIMARY KEY (CustomerOrderId, 
   ProductId));
 CREATE TABLE CustomerType (
-  Id   number(1) , 
+  Id   number(1), 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE Entity (
-  Id             number(15) , 
+  Id             number(15), 
   CustomerTypeId number(1) NOT NULL, 
   Name           varchar2(255) NOT NULL, 
   VATIN          varchar2(255) NOT NULL UNIQUE, 
@@ -56,15 +56,15 @@ CREATE TABLE Entity (
   AddressId      number(10) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE Material (
-  Id   number(10) , 
+  Id   number(10), 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE MeasurementUnit (
-  Id   number(2) , 
+  Id   number(2), 
   Unit varchar2(10) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE Operation (
-  Id          number(10) , 
+  Id          number(10), 
   Description varchar2(255), 
   PRIMARY KEY (Id));
 CREATE TABLE Operation_WorkstationType (
@@ -78,7 +78,7 @@ CREATE TABLE Part (
 CREATE TABLE PartBOM (
   BOMId    number(10) NOT NULL, 
   PartId   varchar2(255) NOT NULL, 
-  Quantity number(10) NOT NULL, 
+  Quantity number(6) NOT NULL, 
   PRIMARY KEY (BOMId, 
   PartId));
 CREATE TABLE Product (
@@ -98,29 +98,29 @@ CREATE TABLE Product_Material (
   PRIMARY KEY (ProductId, 
   MaterialId));
 CREATE TABLE Product_Size (
-  Id                number(10) , 
+  Id                number(10), 
   ProductId         varchar2(255) NOT NULL, 
   SizeInt           number(10) NOT NULL, 
   MeasurementUnitId number(2) NOT NULL, 
   Description       varchar2(20), 
   PRIMARY KEY (Id));
 CREATE TABLE ProductFamily (
-  Id   number(10) , 
+  Id   number(10), 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE ProductionOrder (
+  Id              number(10), 
   CustomerOrderId number(10) NOT NULL, 
   ProductId       varchar2(255) NOT NULL, 
   "Date"          date NOT NULL, 
-  Quantity        number(10) NOT NULL, 
-  PRIMARY KEY (CustomerOrderId, 
-  ProductId));
+  Quantity        number(6) NOT NULL, 
+  PRIMARY KEY (Id));
 CREATE TABLE RawMaterial (
   Id   varchar2(255) NOT NULL, 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE SystemRoles (
-  Id   number(10) , 
+  Id   number(10), 
   Role varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE SystemUser (
@@ -129,7 +129,7 @@ CREATE TABLE SystemUser (
   PRIMARY KEY (CostumerId, 
   SystemRolesId));
 CREATE TABLE Town (
-  Id   number(10) , 
+  Id   number(10), 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE WorkstationType (
