@@ -30,7 +30,7 @@ CREATE TABLE Customer (
   PhoneNumber    number(20), 
   Email          varchar2(255), 
   AddressId      number(10) NOT NULL, 
-  State          char(1) NOT NULL, 
+  CustomerState  char(1) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE CustomerOrder (
   Id           number(10), 

@@ -18,10 +18,10 @@ INSERT INTO Address(Id,Street,ZipCode,TownId,CountryId) VALUES(3, 'EDIFICIO CRIS
 INSERT INTO Address(Id,Street,ZipCode,TownId,CountryId) VALUES(4, 'Křemencova 11', '110 00', '4', '2');
 
 
-INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,State) VALUES(456, 2, 'Carvalho & Carvalho, Lda', 'PT501245987', 003518340500, 'idont@care.com', 1, 0);
-INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,State) VALUES(785, 2, 'Tudo para a casa, Lda', 'PT501245488', 003518340500, 'me@neither.com', 2, 0);
-INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,State) VALUES(657, 2, 'Sair de Cena', 'PT501242417', 003518340500, 'some@email.com', 3, 0);
-INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,State) VALUES(348, 2, 'U Fleku', 'CZ6451237810', 004201234567, 'some.random@email.cz', 4, 0);
+INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,CustomerState) VALUES(456, 2, 'Carvalho & Carvalho, Lda', 'PT501245987', 003518340500, 'idont@care.com', 1, 0);
+INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,CustomerState) VALUES(785, 2, 'Tudo para a casa, Lda', 'PT501245488', 003518340500, 'me@neither.com', 2, 0);
+INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,CustomerState) VALUES(657, 2, 'Sair de Cena', 'PT501242417', 003518340500, 'some@email.com', 3, 0);
+INSERT INTO Customer(Id,CustomerTypeId,Name,VATIN,PhoneNumber,Email,AddressId,CustomerState) VALUES(348, 2, 'U Fleku', 'CZ6451237810', 004201234567, 'some.random@email.cz', 4, 0);
 
 
 INSERT INTO ProductFamily(Id,Name) VALUES(125, 'Pro Line pots');
