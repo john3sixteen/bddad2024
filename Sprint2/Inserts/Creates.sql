@@ -6,10 +6,8 @@ CREATE TABLE Address (
   CountryId number(10) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE BOO (
-  Id          number(10), 
-  ProductId   varchar2(255) NOT NULL, 
-  OperationId number(10) NOT NULL, 
-  OutputId    varchar2(255) NOT NULL, 
+  Id        number(10), 
+  ProductId varchar2(255) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE Colour (
   Id   number(5), 
@@ -61,24 +59,34 @@ CREATE TABLE MeasurementUnit (
   Unit varchar2(10) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
 CREATE TABLE Operation (
+  Id                      number(10), 
+  OperationTypeId         number(10) NOT NULL, 
+  BOOId                   number(10) NOT NULL, 
+  PartOutput              varchar2(255) NOT NULL, 
+  NextOp                  number(10), 
+  OutputQuantity          number(10) NOT NULL, 
+  OutputMeasurementUnitId number(2) NOT NULL, 
+  PRIMARY KEY (Id));
+CREATE TABLE OperationInput (
+  OperationId       number(10) NOT NULL, 
+  PartId            varchar2(255) NOT NULL, 
+  Quantity          number(6) NOT NULL, 
+  MeasurementUnitId number(2) NOT NULL, 
+  PRIMARY KEY (OperationId, 
+  PartId));
+CREATE TABLE OperationType (
   Id          number(10), 
   Description varchar2(255), 
   PRIMARY KEY (Id));
-CREATE TABLE Operation_WorkstationType (
-  OperationId       number(10) NOT NULL, 
+CREATE TABLE OperationType_WorkstationType (
+  OperationTypeId   number(10) NOT NULL, 
   WorkstationTypeId varchar2(255) NOT NULL, 
-  PRIMARY KEY (OperationId, 
+  PRIMARY KEY (OperationTypeId, 
   WorkstationTypeId));
 CREATE TABLE Part (
   Id   varchar2(255) NOT NULL, 
   Name varchar2(255) NOT NULL UNIQUE, 
   PRIMARY KEY (Id));
-CREATE TABLE Part_BOO (
-  BOOId    number(10) NOT NULL, 
-  PartId   varchar2(255) NOT NULL, 
-  Quantity number(6) NOT NULL, 
-  PRIMARY KEY (BOOId, 
-  PartId));
 CREATE TABLE Product (
   Id              varchar2(255) NOT NULL, 
   ProductFamilyId number(10) NOT NULL, 
@@ -109,7 +117,7 @@ CREATE TABLE ProductionOrder (
   Id              number(10), 
   CustomerOrderId number(10) NOT NULL, 
   ProductId       varchar2(255) NOT NULL, 
-  "Date"          date NOT NULL, 
+  ProductionDate  date NOT NULL, 
   Quantity        number(6) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE RawMaterial (
@@ -143,17 +151,21 @@ ALTER TABLE Product_Colour ADD CONSTRAINT FKProduct_Co644295 FOREIGN KEY (Produc
 ALTER TABLE Product_Colour ADD CONSTRAINT FKProduct_Co44317 FOREIGN KEY (ColourId) REFERENCES Colour (Id);
 ALTER TABLE Product_Material ADD CONSTRAINT FKProduct_Ma592336 FOREIGN KEY (MaterialId) REFERENCES Material (Id);
 ALTER TABLE Product_Material ADD CONSTRAINT FKProduct_Ma292149 FOREIGN KEY (ProductId) REFERENCES Product (Id);
-ALTER TABLE Operation_WorkstationType ADD CONSTRAINT FKOperation_268727 FOREIGN KEY (OperationId) REFERENCES Operation (Id);
-ALTER TABLE Operation_WorkstationType ADD CONSTRAINT FKOperation_247316 FOREIGN KEY (WorkstationTypeId) REFERENCES WorkstationType (Id);
-ALTER TABLE BOO ADD CONSTRAINT FKBOO345911 FOREIGN KEY (OperationId) REFERENCES Operation (Id);
+ALTER TABLE OperationType_WorkstationType ADD CONSTRAINT FKOperationT623868 FOREIGN KEY (OperationTypeId) REFERENCES OperationType (Id);
+ALTER TABLE OperationType_WorkstationType ADD CONSTRAINT FKOperationT787415 FOREIGN KEY (WorkstationTypeId) REFERENCES WorkstationType (Id);
 ALTER TABLE Address ADD CONSTRAINT FKAddress379330 FOREIGN KEY (TownId) REFERENCES Town (Id);
 ALTER TABLE RawMaterial ADD CONSTRAINT FKRawMateria383607 FOREIGN KEY (Id) REFERENCES Part (Id);
 ALTER TABLE Component ADD CONSTRAINT FKComponent546372 FOREIGN KEY (Id) REFERENCES Part (Id);
 ALTER TABLE Product ADD CONSTRAINT FKProduct665445 FOREIGN KEY (Id) REFERENCES Part (Id);
 ALTER TABLE ProductionOrder ADD CONSTRAINT FKProduction758060 FOREIGN KEY (CustomerOrderId, ProductId) REFERENCES CustomerOrderLine (CustomerOrderId, ProductId);
 ALTER TABLE Workstation ADD CONSTRAINT FKWorkstatio223030 FOREIGN KEY (WorkstationTypeId) REFERENCES WorkstationType (Id);
-ALTER TABLE Part_BOO ADD CONSTRAINT FKPart_BOO896893 FOREIGN KEY (PartId) REFERENCES Part (Id);
-ALTER TABLE BOO ADD CONSTRAINT FKBOO375125 FOREIGN KEY (OutputId) REFERENCES Part (Id);
-ALTER TABLE Part_BOO ADD CONSTRAINT FKPart_BOO618708 FOREIGN KEY (BOOId) REFERENCES BOO (Id);
-ALTER TABLE BOO ADD CONSTRAINT FKBOO584461 FOREIGN KEY (ProductId) REFERENCES Product (Id);
+ALTER TABLE OperationInput ADD CONSTRAINT FKOperationI554086 FOREIGN KEY (PartId) REFERENCES Part (Id);
 ALTER TABLE IntermediateProduct ADD CONSTRAINT FKIntermedia669857 FOREIGN KEY (Id) REFERENCES Part (Id);
+ALTER TABLE Operation ADD CONSTRAINT FKOperation878192 FOREIGN KEY (OperationTypeId) REFERENCES OperationType (Id);
+ALTER TABLE Operation ADD CONSTRAINT FKOperation844467 FOREIGN KEY (BOOId) REFERENCES BOO (Id);
+ALTER TABLE BOO ADD CONSTRAINT FKBOO584461 FOREIGN KEY (ProductId) REFERENCES Product (Id);
+ALTER TABLE Operation ADD CONSTRAINT FKOperation994 FOREIGN KEY (PartOutput) REFERENCES Part (Id);
+ALTER TABLE Operation ADD CONSTRAINT FKOperation449038 FOREIGN KEY (NextOp) REFERENCES Operation (Id);
+ALTER TABLE OperationInput ADD CONSTRAINT FKOperationI182655 FOREIGN KEY (OperationId) REFERENCES Operation (Id);
+ALTER TABLE Operation ADD CONSTRAINT FKOperation349825 FOREIGN KEY (OutputMeasurementUnitId) REFERENCES MeasurementUnit (Id);
+ALTER TABLE OperationInput ADD CONSTRAINT FKOperationI432616 FOREIGN KEY (MeasurementUnitId) REFERENCES MeasurementUnit (Id);
