@@ -16,12 +16,16 @@ BEGIN
 	END IF;
 
 	OPEN operationCursor FOR
-		SELECT part.name, operation.Id, operation.Description, workstationType.Id, workstationType.Name
+		SELECT partProduct.Name, operation.Id, operationType.Description, partInput.Name, partOutput.Name, workstationType.Id, workstationType.Name
 		FROM Product product
-		INNER JOIN Part 						part 						ON product.Id 			= part.Id
-		INNER JOIN BOO 							boo							ON product.Id 			= boo.ProductId
-		INNER JOIN Operation 					operation					ON boo.OperationId 		= operation.Id
-		INNER JOIN Operation_WorkstationType 	operation_WorkstationType	ON operation.Id			= operation_WorkstationType.OperationId
-		INNER JOIN WorkstationType				workstationType				ON workstationType.Id	= operation_WorkstationType.WorkstationTypeId;
+		INNER JOIN Part 							partProduct 					ON product.Id 					= partProduct.Id
+		INNER JOIN BOO 								boo								ON product.Id 					= boo.ProductId
+		INNER JOIN Operation 						operation						ON boo.Id 						= operation.BOOId
+		INNER JOIN OperationInput					operationInput					ON operationInput.OperationId	= operation.Id
+		INNER JOIN Part								partInput						ON partInput.Id					= operationInput.PartId
+		INNER JOIN Part								partOutput						ON partOutput.Id				= operation.PartOutput
+        INNER JOIN OperationType 					operationType					ON operation.OperationtypeId 	= operationType.Id
+		INNER JOIN OperationType_WorkstationType 	operationType_WorkstationType	ON operationType.Id				= operationType_WorkstationType.OperationTypeId
+		INNER JOIN WorkstationType					workstationType					ON workstationType.Id			= operationType_WorkstationType.WorkstationTypeId;
 	RETURN operationCursor;
 END;
