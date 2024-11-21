@@ -1,8 +1,16 @@
 DECLARE
     rfc SYS_REFCURSOR;
+	products SYS_REFCURSOR;
     orderId CustomerOrder.Id%type;
 BEGIN
-    rfc := fncRegisterOrder('PT501245987', 'Tv. Augusto Lessa 23', '4200-047', 'Porto',   'Portugal', 'La Belle 22 5l pot', 1, SYSDATE());
+    OPEN products FOR
+        SELECT 'Pro 22 5l pot bottom' AS product, 10 AS quantity FROM dual
+        UNION ALL
+        SELECT 'Pro 20 lid', 5 FROM dual
+        UNION ALL
+        SELECT 'Pro 20 3l pot bottom', 3 FROM dual;
+    
+    rfc := fncRegisterOrder('PT501245987', 'Tv. Augusto Lessa 23', '4200-047', 'Porto',   'Portugal', products, SYSDATE());
 
     LOOP
     FETCH rfc INTO orderId;
@@ -23,6 +31,8 @@ EXCEPTION
 		ELSIF SQLCODE = -20002 THEN
 			DBMS_OUTPUT.PUT_LINE('Address Not Found.');
 		ELSIF SQLCODE = -20003 THEN
-			DBMS_OUTPUT.PUT_LINE('Product Not Found.');
+			DBMS_OUTPUT.PUT_LINE('Products Not Found.');
 		END IF;
 END;
+
+select * from CustomerOrder
