@@ -6,7 +6,7 @@ CREATE TABLE Address (
   CountryId number(10) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE BOO (
-  Id        number(10), 
+  Id        varchar2(10), 
   ProductId varchar2(255) NOT NULL, 
   PRIMARY KEY (Id));
 CREATE TABLE Colour (
@@ -61,7 +61,7 @@ CREATE TABLE MeasurementUnit (
 CREATE TABLE Operation (
   Id                      number(10), 
   OperationTypeId         number(10) NOT NULL, 
-  BOOId                   number(10) NOT NULL, 
+  BOOId                   varchar2(10) NOT NULL, 
   PartOutput              varchar2(255) NOT NULL, 
   NextOp                  number(10), 
   OutputQuantity          number(10) NOT NULL, 
