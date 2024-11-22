@@ -161,12 +161,12 @@ INSERT INTO Product_Size(Id,ProductId,SizeInt,MeasurementUnitId,Description) VAL
 INSERT INTO Product_Size(Id,ProductId,SizeInt,MeasurementUnitId,Description) VALUES(18, 'AS12947S20',20, 1,'NULL');
 
 
-INSERT INTO BOO(Id,ProductId) VALUES('AS12946S22', 'AS12946S22');
-INSERT INTO BOO(Id,ProductId) VALUES('AS12947S22', 'AS12947S22');
-INSERT INTO BOO(Id,ProductId) VALUES('AS12945S22', 'AS12945S22');
-INSERT INTO BOO(Id,ProductId) VALUES('AS12946S20', 'AS12946S20');
-INSERT INTO BOO(Id,ProductId) VALUES('AS12947S20', 'AS12947S20');
-INSERT INTO BOO(Id,ProductId) VALUES('AS12945S20', 'AS12945S20');
+INSERT INTO BOO(Id,ProductId) VALUES('1', 'AS12946S22');
+INSERT INTO BOO(Id,ProductId) VALUES('2', 'AS12947S22');
+INSERT INTO BOO(Id,ProductId) VALUES('3', 'AS12945S22');
+INSERT INTO BOO(Id,ProductId) VALUES('4', 'AS12946S20');
+INSERT INTO BOO(Id,ProductId) VALUES('5', 'AS12947S20');
+INSERT INTO BOO(Id,ProductId) VALUES('6', 'AS12945S20');
 
 
 INSERT INTO OperationType(Id,Description) VALUES(5647, 'Disc cutting');
@@ -189,26 +189,65 @@ INSERT INTO OperationType(Id,Description) VALUES(5685, 'Handle Gluing');
 INSERT INTO OperationType(Id,Description) VALUES(5688, 'Pan test and packaging');
 
 
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(170, 5663, 'AS12945S20', 'AS12945S20', NULL, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(164, 5667, 'AS12947S20', 'AS12947S20', NULL, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(154, 5659, 'AS12946S20', 'AS12946S20', NULL, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(115, 5659, 'AS12946S22', 'AS12946S22', NULL, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(124, 5667, 'AS12947S22', 'AS12947S22', NULL, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(130, 5663, 'AS12945S22', 'AS12945S22', NULL, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(163, 5661, 'AS12947S20', 'IP12947A34', 164, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(153, 5653, 'AS12946S20', 'IP12945A34', 154, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(123, 5661, 'AS12947S22', 'IP12947A04', 124, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(152, 5651, 'AS12946S20', 'IP12945A33', 153, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(122, 5657, 'AS12947S22', 'IP12947A03', 123, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(151, 5649, 'AS12946S20', 'IP12945A32', 152, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(121, 5655, 'AS12947S22', 'IP12947A02', 122, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(114, 5653, 'AS12946S22', 'IP12945A04', 115, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(112, 5651, 'AS12946S22', 'IP12945A03', 114, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(103, 5649, 'AS12946S22', 'IP12945A02', 112, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(100, 5647, 'AS12946S22', 'IP12945A01', 103, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(162, 5657, 'AS12947S20', 'IP12947A33', 163, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(161, 5655, 'AS12947S20', 'IP12947A32', 162, 1, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(160, 5647, 'AS12947S20', 'IP12947A01', 161, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(170, 5663, '6', 'AS12945S20', NULL, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(164, 5667, '5', 'AS12947S20', NULL, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(154, 5659, '4', 'AS12946S20', NULL, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(115, 5659, '1', 'AS12946S22', NULL, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(124, 5667, '2', 'AS12947S22', NULL, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(130, 5663, '3', 'AS12945S22', NULL, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(163, 5661, '5', 'IP12947A34', 164, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(153, 5653, '4', 'IP12945A34', 154, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(123, 5661, '2', 'IP12947A04', 124, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(152, 5651, '4', 'IP12945A33', 153, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(122, 5657, '2', 'IP12947A03', 123, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(151, 5649, '4', 'IP12945A32', 152, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(150, 5647, '4', 'IP12945A01', 151, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(121, 5655, '2', 'IP12947A02', 122, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(120, 5647, '2', 'IP12947A01', 121, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(114, 5653, '1', 'IP12945A04', 115, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(112, 5651, '1', 'IP12945A03', 114, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(103, 5649, '1', 'IP12945A02', 112, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(100, 5647, '1', 'IP12945A01', 103, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(162, 5657, '5', 'IP12947A33', 163, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(161, 5655, '5', 'IP12947A32', 162, 1, 5);
+INSERT INTO Operation(Id,OperationTypeId,BOOId,PartOutput,NextOp,OutputQuantity,OutputMeasurementUnitId) VALUES(160, 5647, '5', 'IP12947A01', 161, 1, 5);
+
+
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('100', 'PN52384R50', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('103', 'IP12945A01', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('103', 'PN94561L67', '5', '4');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('112', 'IP12945A02', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('112', 'PN94561L67', '5', '4');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('114', 'IP12945A03', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('115', 'IP12945A04', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('115', 'PN18544C21', '2', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('120', 'PN52384R10', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('121', 'IP12947A01', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('121', 'PN94561L67', '5', '4');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('122', 'IP12947A02', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('123', 'IP12947A03', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('123', 'PN18324C54', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('124', 'IP12947A04', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('130', 'AS12947S22', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('130', 'AS12946S22', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('150', 'PN52384R50', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('151', 'IP12945A01', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('151', 'PN94561L67', '5', '4');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('152', 'IP12945A32', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('152', 'PN94561L67', '5', '4');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('153', 'IP12945A33', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('154', 'IP12945A34', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('154', 'PN18544C21', '2', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('160', 'PN52384R10', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('161', 'IP12947A01', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('161', 'PN94561L67', '5', '4');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('162', 'IP12947A32', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('163', 'IP12947A33', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('163', 'PN18324C51', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('164', 'IP12947A34', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('170', 'AS12946S20', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('170', 'AS12947S20', '1', '5');
+
 
 INSERT INTO WorkstationType(Id,Name) VALUES('A4578', '600t cold forging stamping press');
 INSERT INTO WorkstationType(Id,Name) VALUES('A4588', '600t cold forging precision stamping press');
@@ -273,7 +312,6 @@ INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId) VAL
 INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId) VALUES(5683, 'C5637');
 INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId) VALUES(5685, 'D9123');
 INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId) VALUES(5688, 'K3675');
-INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId) VALUES(5655, 'A4598');
 
 
 INSERT INTO CustomerOrder(Id,CustomerId,AddressId,DateOrder,DateDelivery) VALUES(1, 785, 2, TO_DATE('15/09/2024', 'dd/MM/YYYY'), TO_DATE('23/09/2024', 'dd/MM/YYYY'));
