@@ -1,3 +1,8 @@
+CREATE GLOBAL TEMPORARY TABLE temp_product_table (
+    productId INT,
+    quantity INT
+) ON COMMIT DELETE ROWS;
+
 CREATE or REPLACE FUNCTION fncRegisterOrder(CustomerVATIN Customer.Vatin%type,
     												StreetName Address.Street%type,
     												ZIPCodeNum Address.ZIPCode%type,
