@@ -19,22 +19,25 @@ BEGIN
 
             UNION ALL
 
-            SELECT product.Id
-            FROM Product product
-            INNER JOIN Part part ON product.Id = part.Id
-            INNER JOIN ProductHierarchy productHierarchy ON part.Id = productHierarchy.ProductId
-            WHERE product.Id != productHierarchy.ProductId
+            SELECT partInput.Id
+            FROM ProductHierarchy ph
+            INNER JOIN Product product ON ph.ProductId = product.Id
+            INNER JOIN BOO boo ON product.Id = boo.ProductId
+            INNER JOIN Operation operation ON boo.Id = operation.BOOId
+            INNER JOIN OperationInput operationInput ON operation.Id = operationInput.OperationId
+            INNER JOIN Part partInput ON operationInput.PartId = partInput.Id
+            WHERE partInput.Id IS NOT NULL
         )
         SELECT
-            partProduct.Name,
-            operation.Id,
-            operationType.Description,
-            partInput.Name,
-            partOutput.Name,
-            workstationType.Id,
-            workstationType.Name
-        FROM ProductHierarchy productHierarchy
-        INNER JOIN Product product ON productHierarchy.ProductId = product.Id
+            partProduct.Name AS ProductName,
+            operation.Id AS OperationId,
+            operationType.Description AS OperationTypeDescription,
+            partInput.Name AS InputPartName,
+            partOutput.Name AS OutputPartName,
+            workstationType.Id AS WorkstationTypeId,
+            workstationType.Name AS WorkstationTypeName
+        FROM ProductHierarchy ph
+        INNER JOIN Product product ON ph.ProductId = product.Id
         INNER JOIN Part partProduct ON product.Id = partProduct.Id
         INNER JOIN BOO boo ON product.Id = boo.ProductId
         INNER JOIN Operation operation ON boo.Id = operation.BOOId
@@ -45,7 +48,8 @@ BEGIN
         INNER JOIN OperationType_WorkstationType operationType_WorkstationType 
             ON operationType.Id = operationType_WorkstationType.OperationTypeId
         INNER JOIN WorkstationType workstationType 
-            ON workstationType.Id = operationType_WorkstationType.WorkstationTypeId;
+            ON workstationType.Id = operationType_WorkstationType.WorkstationTypeId
+		ORDER BY partProduct.Name, operation.NextOP;
 
     RETURN operationCursor;
 END;

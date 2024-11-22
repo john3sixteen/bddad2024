@@ -14,7 +14,7 @@ DECLARE
 	workstationTypeName		WorkstationType.Name%type;
 
 BEGIN
-	myCursor := fncGetOperationList('AS12945T22');
+	myCursor := fncGetOperationList('3');
 	LOOP
 		FETCH myCursor INTO partName, operationId, operationDescription, workstationTypeId, workstationTypeName;
 		EXIT WHEN myCursor%NOTFOUND;
