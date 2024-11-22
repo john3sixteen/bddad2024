@@ -1,11 +1,6 @@
-CREATE GLOBAL TEMPORARY TABLE temp_product_table (
-    product varchar2(255),
-    quantity number(6)
-) ON COMMIT DELETE ROWS;
-
 CREATE or REPLACE FUNCTION fncRegisterOrder(CustomerVATIN Customer.Vatin%type,
-    												Street Address.Street%type,
-    												ZIPCode Address.ZIPCode%type,
+    												StreetName Address.Street%type,
+    												ZIPCodeNum Address.ZIPCode%type,
     												TownName Town.Name%type,
     												CountryName Country.Name%type,
     												Products IN sys_refcursor,
@@ -39,7 +34,7 @@ CREATE or REPLACE FUNCTION fncRegisterOrder(CustomerVATIN Customer.Vatin%type,
             	FROM Address 
                 INNER JOIN Town ON Address.TownId = Town.Id
                 INNER JOIN Country ON Address.CountryId = Country.Id
-                WHERE Address.Street = Street AND Address.ZIPCode = ZIPCode AND Town.Name = TownName AND Country.Name = CountryName;
+                WHERE Address.Street = StreetName AND Address.ZIPCode = ZIPCodeNum AND Town.Name = TownName AND Country.Name = CountryName;
 
                 if dummy = 0 then
                     RAISE_APPLICATION_ERROR(-20002, 'Address Not Found');
@@ -84,7 +79,7 @@ CREATE or REPLACE FUNCTION fncRegisterOrder(CustomerVATIN Customer.Vatin%type,
 
 				Select Id INTO addressId
                     FROM Address
-                	WHERE Address.Street = Street AND Address.ZIPCode = ZIPCode AND Address.TownId = townId AND Address.CountryId = countryId;
+                	WHERE Address.Street like StreetName AND Address.ZIPCode like ZIPCodeNum AND Address.TownId = townId AND Address.CountryId = countryId;
 
 				INSERT INTO CustomerOrder(Id,CustomerId,AddressId,DateOrder,DateDelivery) VALUES (nextOrder, customerId, addressId, SYSDATE, DateDelivery);
 

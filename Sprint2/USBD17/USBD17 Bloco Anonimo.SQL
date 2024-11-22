@@ -34,5 +34,3 @@ EXCEPTION
 			DBMS_OUTPUT.PUT_LINE('Products Not Found.');
 		END IF;
 END;
-
-select * from CustomerOrder
