@@ -5,7 +5,7 @@ CREATE or REPLACE FUNCTION fncDeactivateCustomer(IdCustomer Customer.Id%type)
             BEGIN
                 SELECT count(*) INTO dummy 
             	FROM Customer 
-                WHERE Customer.Id = IdCustomer AND Customer.CustomerState = 0;
+                WHERE Customer.Id = IdCustomer AND Customer.CustomerState >= 0;
 
                 IF dummy = 0 THEN
                     RAISE NO_DATA_FOUND;
@@ -20,7 +20,7 @@ CREATE or REPLACE FUNCTION fncDeactivateCustomer(IdCustomer Customer.Id%type)
                 END IF;
 
 				UPDATE Customer
-                    SET CustomerState = 1
+                    SET CustomerState = -1
                     WHERE Customer.Id = IdCustomer;
                 OPEN rfStock for
                     SELECT Id, Name 
