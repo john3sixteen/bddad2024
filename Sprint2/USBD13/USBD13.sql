@@ -20,8 +20,8 @@ BEGIN
             UNION ALL
 
             SELECT partInput.Id
-            FROM ProductHierarchy ph
-            INNER JOIN Product product ON ph.ProductId = product.Id
+            FROM ProductHierarchy productHierarchy
+            INNER JOIN Product product ON productHierarchy.ProductId = product.Id
             INNER JOIN BOO boo ON product.Id = boo.ProductId
             INNER JOIN Operation operation ON boo.Id = operation.BOOId
             INNER JOIN OperationInput operationInput ON operation.Id = operationInput.OperationId
@@ -36,8 +36,8 @@ BEGIN
             partOutput.Name AS OutputPartName,
             workstationType.Id AS WorkstationTypeId,
             workstationType.Name AS WorkstationTypeName
-        FROM ProductHierarchy ph
-        INNER JOIN Product product ON ph.ProductId = product.Id
+        FROM ProductHierarchy productHierarchy
+        INNER JOIN Product product ON productHierarchy.ProductId = product.Id
         INNER JOIN Part partProduct ON product.Id = partProduct.Id
         INNER JOIN BOO boo ON product.Id = boo.ProductId
         INNER JOIN Operation operation ON boo.Id = operation.BOOId
