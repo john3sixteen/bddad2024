@@ -31,16 +31,18 @@ BEGIN
             WHERE partInput.Id IS NOT NULL
         
         )
+
         SELECT
             partInput.Id AS PartId,
             SUM(operationInput.Quantity) AS TotalQuantity
         FROM PartHierarchy
         INNER JOIN Part part ON PartHierarchy.PartId = part.Id
-        INNER JOIN Operation operation ON part.Id = operation.partOutput
+        INNER JOIN Product product ON product.Id = part.id
+        INNER JOIN BOO boo ON boo.productId = product.Id
+        INNER JOIN Operation operation ON operation.booId = boo.Id
         INNER JOIN OperationInput operationInput ON operationInput.OperationId = operation.Id
         INNER JOIN Part partInput ON partInput.Id = operationInput.PartId
-        LEFT OUTER JOIN Product product ON product.Id = part.Id
-        WHERE product.Id IS NULL
+        WHERE partInput.Id NOT IN (SELECT productInput.Id from Product productInput)
         GROUP BY partInput.Id
         ORDER BY partInput.Id;
 
