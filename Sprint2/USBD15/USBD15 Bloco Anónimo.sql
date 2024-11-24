@@ -17,8 +17,17 @@ DECLARE
 				IF rfc%ROWCOUNT = 0 THEN
                     dbms_output.put_line('Workstation not created');
 				END IF;
+				
+				
 
             EXCEPTION
                 WHEN NO_DATA_FOUND THEN
                     dbms_output.put_line('Workstation Type does not exist');
+					EXCEPTION
+			WHEN OTHERS THEN
+				IF SQLCODE = -20002 THEN
+					DBMS_OUTPUT.PUT_LINE('There exists a Workstation with that Id already.');
+				END IF;
             END;
+
+
