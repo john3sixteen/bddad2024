@@ -229,28 +229,28 @@ INSERT INTO OperationType(Id,Description) VALUES(5685, 'Handle Gluing');
 INSERT INTO OperationType(Id,Description) VALUES(5688, 'Pan test and packaging');
 
 
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(100, 5647, '1', 103, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(103, 5649, '1', 112, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(112, 5651, '1', 114, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(114, 5653, '1', 115, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(170, 5663, '6', NULL, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(164, 5667, '5', NULL, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(154, 5659, '4', NULL, 10);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(115, 5659, '1', NULL, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(120, 5647, '2', 121, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(121, 5655, '2', 122, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(122, 5657, '2', 123, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(123, 5661, '2', 124, 10);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(124, 5667, '2', NULL, 10);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(130, 5663, '3', NULL, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(150, 5647, '4', 151, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(151, 5649, '4', 152, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(152, 5651, '4', 153, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(153, 5653, '4', 154, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(154, 5659, '4', NULL, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(160, 5647, '5', 161, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(161, 5655, '5', 162, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(162, 5657, '5', 163, 10);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(163, 5661, '5', 164, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(164, 5667, '5', NULL, 10);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(170, 5663, '6', NULL, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(153, 5653, '4', 154, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(123, 5661, '2', 124, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(152, 5651, '4', 153, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(122, 5657, '2', 123, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(151, 5649, '4', 152, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(150, 5647, '4', 151, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(121, 5655, '2', 122, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(120, 5647, '2', 121, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(114, 5653, '1', 115, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(112, 5651, '1', 114, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(103, 5649, '1', 112, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(100, 5647, '1', 103, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(162, 5657, '5', 163, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(161, 5655, '5', 162, 10);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(160, 5647, '5', 161, 10);
 
 
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('100', 'PN52384R50', '1', '5');
@@ -376,8 +376,6 @@ INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId,Setu
 INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId,SetupTime,MaximumTime) VALUES(5683, 'C5637',1, 10);
 INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId,SetupTime,MaximumTime) VALUES(5685, 'D9123',1, 10);
 INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId,SetupTime,MaximumTime) VALUES(5688, 'K3675',1, 10);
-INSERT INTO OperationType_WorkstationType(OperationTypeId,WorkstationTypeId,SetupTime,MaximumTime) VALUES(5655, 'A4598',1, 10);
-
 
 
 INSERT INTO CustomerOrder(Id,CustomerId,AddressId,DateOrder,DateDelivery) VALUES(1, 785, 2, TO_DATE('15/09/2024', 'dd/MM/YYYY'), TO_DATE('23/09/2024', 'dd/MM/YYYY'));
@@ -420,24 +418,15 @@ INSERT INTO ProductionOrder(Id,CustomerOrderId,ProductId,Quantity,ProductionDate
 
 
 INSERT INTO Supplier(Id) VALUES(12345);
-INSERT INTO Supplier(Id) VALUES(12345);
-INSERT INTO Supplier(Id) VALUES(12345);
-INSERT INTO Supplier(Id) VALUES(12345);
-INSERT INTO Supplier(Id) VALUES(12345);
-INSERT INTO Supplier(Id) VALUES(12298);
-INSERT INTO Supplier(Id) VALUES(12298);
-INSERT INTO Supplier(Id) VALUES(12298);
-INSERT INTO Supplier(Id) VALUES(12298);
 INSERT INTO Supplier(Id) VALUES(12298);
 
 
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18544C21', TO_DATE('01/10/2023', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 20, 1,25);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C54', TO_DATE('01/10/2023', 'dd/MM/YYYY'), TO_DATE('29/02/2024', 'dd/MM/YYYY'), 10, 1,7);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C54', TO_DATE('01/04/2024', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 16, 1,8);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C51', TO_DATE('01/07/2023', 'dd/MM/YYYY'), TO_DATE('31/03/2024', 'dd/MM/YYYY'), 30, 1,9);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C51', TO_DATE('01/04/2024', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 20, 1,9);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18544C21', TO_DATE('01/09/2023', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 10, 1,35);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C54', TO_DATE('01/08/2023', 'dd/MM/YYYY'), TO_DATE('29/01/2024', 'dd/MM/YYYY'), 10, 1,8);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C54', TO_DATE('15/02/2024', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 20, 1,75);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C51', TO_DATE('01/08/2023', 'dd/MM/YYYY'), TO_DATE('31/05/2024', 'dd/MM/YYYY'), 40, 1,8);
-INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'AS12945G48', TO_DATE('01/07/2023', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 10, 10,25);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18544C21', TO_DATE('01/10/2023', 'dd/MM/YYYY'), NULL, 20, 1.25);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C54', TO_DATE('01/10/2023', 'dd/MM/YYYY'), TO_DATE('29/02/2024', 'dd/MM/YYYY'), 10, 1.7);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C54', TO_DATE('01/04/2024', 'dd/MM/YYYY'), NULL, 16, 1.8);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C51', TO_DATE('01/07/2023', 'dd/MM/YYYY'), TO_DATE('31/03/2024', 'dd/MM/YYYY'), 30, 1.9);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12345, 'PN18324C51', TO_DATE('01/04/2024', 'dd/MM/YYYY'), NULL, 20, 1.9);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18544C21', TO_DATE('01/09/2023', 'dd/MM/YYYY'), NULL, 10, 1.35);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C54', TO_DATE('01/08/2023', 'dd/MM/YYYY'), TO_DATE('29/01/2024', 'dd/MM/YYYY'), 10, 1.8);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C54', TO_DATE('15/02/2024', 'dd/MM/YYYY'), NULL, 20, 1.75);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C51', TO_DATE('01/08/2023', 'dd/MM/YYYY'), TO_DATE('31/05/2024', 'dd/MM/YYYY'), 40, 1.8);
