@@ -2,7 +2,7 @@ CREATE OR REPLACE TRIGGER validateMaximumTime
     BEFORE INSERT OR UPDATE ON OperationType_WorkstationType
     FOR EACH ROW
 
-    DECLARE expectedTimes SYS_CURSOR;
+    DECLARE expectedTimes SYS_REFCURSOR;
     ERROR EXCEPTION;
 
 BEGIN
