@@ -2,17 +2,16 @@ CREATE OR REPLACE TRIGGER validateMaximumTime
     BEFORE INSERT OR UPDATE ON OperationType_WorkstationType
     FOR EACH ROW
 
-    DECLARE expectedTimes SYS_REFCURSOR;
+    DECLARE expectedTimes NUMBER;
     ERROR EXCEPTION;
 
 BEGIN
-    OPEN expectedTimes FOR
-    	SELECT operation.ExpectedTime
+    SELECT COUNT(*) INTO expectedTimes
     	FROM Operation operation
     	WHERE operation.OperationTypeId = :new.OperationTypeId
     	AND :new.MaximumTime < operation.ExpectedTime;
 
-    IF (expectedTimes%FOUND) THEN
+    IF (expectedTimes > 0) THEN
         RAISE ERROR;
     END IF;
 
