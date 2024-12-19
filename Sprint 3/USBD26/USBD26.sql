@@ -2,7 +2,6 @@ CREATE or REPLACE FUNCTION fncGetPartsFromOrder(orderIdNum CustomerOrder.Id%Type
 	RETURN SYS_REFCURSOR IS
 	dummy NUMBER;
 	partsQuantity  SYS_REFCURSOR;
-	productsQuantity  SYS_REFCURSOR;
 	productNum Product.Id%Type;
 	prodQuantity CustomerOrderLine.Quantity%Type;
 BEGIN
@@ -14,44 +13,51 @@ BEGIN
 		RAISE NO_DATA_FOUND;
     END IF;
 
-	OPEN productsQuantity FOR
-        SELECT ProductID, Quantity
-        FROM CustomerOrderLine
-        WHERE CustomerOrderId = orderIdNum;
-	CLOSE productsQuantity;
+	OPEN partsQuantity FOR
+		WITH PartHierarchy (PartId, Quantity) AS (
+            SELECT Product.Id, CustomerOrderLine.Quantity
+            FROM Product
+        	INNER JOIN CustomerOrderLine ON CustomerOrderLine.ProductId = Product.Id
+            WHERE CustomerOrderLine.CustomerOrderId = orderIdNum
 
-	IF productsQuantity%NOTFOUND THEN
-        RAISE_APPLICATION_ERROR(-20005, 'Order Has no Products');
-	END IF;
+            UNION ALL
 
-	LOOP
-       FETCH productsQuantity into productNum, prodQuantity;
-       EXIT WHEN productsQuantity%NOTFOUND;
-
-			--Falta recursividade e (talvez) como fazer a soma da mesma parte em produtos diferentes
-			
-			OPEN partsQuantity FOR
-				SELECT OperationInput.PartId, (SUM(OperationInput.Quantity)prodQuantity)
-            	FROM OperationInput
-            	INNER JOIN Operation ON Operation.Id  = OperationInput.OperationId
-            	INNER JOIN BOO ON BOO.Id = Operation.BOOId
-            	INNER JOIN Product ON Product.Id = BOO.ProductId
-            	INNER JOIN Part ON Part.Id = OperationInput.PartId
-				WHERE OperationInput.PartId NOT IN (
+            SELECT partInput.Id, PartHierarchy.Quantity
+            	FROM PartHierarchy partHierarchy
+            	INNER JOIN Part part ON part.Id = partHierarchy.PartId
+                INNER JOIN InternalPart internalPart ON internalPart.Id = part.Id
+            	INNER JOIN Product product ON product.Id = internalPart.Id
+            	INNER JOIN BOO boo ON product.Id = boo.ProductId
+                INNER JOIN Operation operation ON boo.Id = operation.BOOId
+                INNER JOIN OperationInput operationInput ON operation.Id = operationInput.OperationId
+                INNER JOIN Part partInput ON operationInput.PartId = partInput.Id
+                WHERE partInput.Id IS NOT NULL
+        		AND partInput.Id IN (
+        			SELECT Id
+        			FROM Product
+                )
+        
+        	)
+                
+			SELECT OperationInput.PartId, SUM(OperationInput.Quantity*PartHierarchy.Quantity)
+            	FROM PartHierarchy
+                INNER JOIN Part ON PartHierarchy.PartId = Part.Id
+        		INNER JOIN InternalPart ON InternalPart.Id = Part.Id
+        		INNER JOIN BOO ON BOO.ProductId = InternalPart.Id
+        		INNER JOIN Operation ON Operation.BOOId = BOO.Id
+        		INNER JOIN OperationInput ON OperationInput.OperationId = Operation.Id
+        		WHERE OperationInput.PartId NOT IN (
                 	SELECT Id
                 	FROM InternalPart
             	)
-            	AND Product.Id = productNum
-            	GROUP BY OperationInput.PartId;
-            CLOSE partsQuantity;
-	END LOOP;
+        		GROUP BY OperationInput.PartId;          
 
 	RETURN partsQuantity;
 END;
 
 CREATE or REPLACE FUNCTION fncCheckPartAvailability(partsQuantity IN SYS_REFCURSOR) 
 	RETURN NUMBER IS
-	available NUMBER := -1;
+	available NUMBER := 0;
 	partNumber Part.Id%Type;
 	partQuantity OperationInput.Quantity%Type;
 	minSk ExternalPart.MinimumStock%Type;
@@ -68,9 +74,7 @@ BEGIN
         	WHERE ExternalPart.Id = partNumber;
 
             IF partQuantity >= (minSK + resSK + sk) THEN
-				available := 0;
-			ELSE
-                available := -1;
+				available := -1;
             END IF;
 	END LOOP;
 	
