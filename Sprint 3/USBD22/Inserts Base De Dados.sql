@@ -260,6 +260,7 @@ INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('112', 'PN94561L67', '5', '4');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('114', 'IP12945A03', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('115', 'IP12945A04', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('115', 'PN18544A21', '4', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('115', 'PN18544C21', '2', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('120', 'PN52384R10', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('121', 'IP12947A01', '1', '5');
@@ -267,6 +268,7 @@ INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('122', 'IP12947A02', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('123', 'IP12947A03', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('123', 'PN18324C54', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('123', 'PN12344A21', '3', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('124', 'IP12947A04', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('130', 'AS12947S22', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('130', 'AS12946S22', '1', '5');
@@ -278,15 +280,18 @@ INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('153', 'IP12945A33', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('154', 'IP12945A34', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('154', 'PN18544C21', '2', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('154', 'PN18544A21', '4', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('160', 'PN52384R10', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('161', 'IP12947A01', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('161', 'PN94561L67', '5', '4');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('162', 'IP12947A32', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('163', 'IP12947A33', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('163', 'PN18324C51', '1', '5');
+INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('163', 'PN12344A21', '3', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('164', 'IP12947A34', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('170', 'AS12946S20', '1', '5');
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('170', 'AS12947S20', '1', '5');
+
 
 
 INSERT INTO OutputPart(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('100', 'IP12945A01', '1', '5');
@@ -429,3 +434,4 @@ INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,
 INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C54', TO_DATE('01/08/2023', 'dd/MM/YYYY'), TO_DATE('29/01/2024', 'dd/MM/YYYY'), 10, 1.8);
 INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C54', TO_DATE('15/02/2024', 'dd/MM/YYYY'), NULL, 20, 1.75);
 INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN18324C51', TO_DATE('01/08/2023', 'dd/MM/YYYY'), TO_DATE('31/05/2024', 'dd/MM/YYYY'), 40, 1.8);
+INSERT INTO Procurement(SupplierId,ExternalPartId,StartDate,EndDate,MinQuantity,Price) VALUES(12298, 'PN12344A21', TO_DATE('01/07/2023', 'dd/MM/YYYY'), TO_DATE(NULL, 'dd/MM/YYYY'), 200, 0.65);
