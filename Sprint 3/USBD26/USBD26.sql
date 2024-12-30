@@ -73,7 +73,7 @@ BEGIN
             FROM ExternalPart 
         	WHERE ExternalPart.Id = partNumber;
 
-            IF partQuantity >= (minSK + resSK + sk) THEN
+            IF (resSK + partQuantity) >= (sk - minSk) THEN
 				available := -1;
             END IF;
 	END LOOP;

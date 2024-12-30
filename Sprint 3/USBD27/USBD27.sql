@@ -4,15 +4,17 @@ CREATE OR REPLACE PROCEDURE UpdateReservedStock (
     partNum ExternalPart.Id%Type;
 	partQuantity OperationInput.Quantity%Type;
 BEGIN
-    LOOP
-       FETCH partsQuantity into partNum, partQuantity;
-       EXIT WHEN partsQuantity%NOTFOUND;
-    	
-		UPDATE ExternalPart
-		SET ReservedStock = ReservedStock + partQuantity
-		WHERE Id = partNum;
-
-	END LOOP;
-
-	DBMS_OUTPUT.PUT_LINE('Parts Reserved');
+		LOOP
+		FETCH partsQuantity into partNum, partQuantity;
+		EXIT WHEN partsQuantity%NOTFOUND;
+			
+			UPDATE ExternalPart
+			SET ReservedStock = ReservedStock + partQuantity
+			WHERE Id = partNum;
+	
+		END LOOP;
+		
+EXCEPTION
+    WHEN OTHERS THEN
+		RAISE;
 END;

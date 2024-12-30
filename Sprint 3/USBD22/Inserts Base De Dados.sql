@@ -110,17 +110,17 @@ INSERT INTO Product(Id,ProductFamilyId,Description) VALUES('AS12946S20', 125, '3
 INSERT INTO Product(Id,ProductFamilyId,Description) VALUES('AS12947S20', 145, '20 cm stainless steel lid');
 
 
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN12344A21', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18544A21', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18544C21', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18324C54', 1, 10, 3);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18324C51', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18324C91', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R50', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R10', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R45', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R12', 1, 10, 0);
-INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN94561L67', 1, 10, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN12344A21', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18544A21', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18544C21', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18324C54', 1, 350, 3);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18324C51', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN18324C91', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R50', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R10', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R45', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN52384R12', 1, 350, 0);
+INSERT INTO ExternalPart(Id, MinimumStock, Stock, ReservedStock) VALUES('PN94561L67', 1, 350, 0);
 
 
 INSERT INTO Component(Id) VALUES('PN12344A21');

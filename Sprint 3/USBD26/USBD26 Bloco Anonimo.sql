@@ -1,8 +1,6 @@
 DECLARE 
-    myCursor           SYS_REFCURSOR;
-partInputId        Part.Id%type;
-    partInputQuantity  NUMBER;
-	available			NUMBER;
+    myCursor    SYS_REFCURSOR;
+	available	NUMBER;
 BEGIN
     myCursor := fncGetPartsFromOrder(1);
 
