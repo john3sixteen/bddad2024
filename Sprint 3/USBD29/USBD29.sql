@@ -12,8 +12,8 @@ BEGIN
 		AND Id NOT IN (SELECT UNIQUE operationType_WorkstationType.WorkstationTypeId
 				FROM BOO boo
 				INNER JOIN Operation 						operation 						ON boo.Id 						= operation.BOOId
-				INNER JOIN OperationType					operationType					ON operation.OperationTypeId	= OperationType.Id
+				INNER JOIN OperationType					operationType					ON operation.OperationTypeId	= operationType.Id
 				INNER JOIN OperationType_WorkstationType 	operationType_WorkstationType	ON operationType.Id				= operationType_WorkstationType.OperationTypeId
-				)
+				);
 	RETURN refCursor;
 END;
