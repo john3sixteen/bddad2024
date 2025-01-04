@@ -232,7 +232,7 @@ INSERT INTO OperationType(Id,Description) VALUES(5688, 'Pan test and packaging')
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(170, 5663, '6', NULL, 3);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(164, 5667, '5', NULL, 2);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(154, 5659, '4', NULL, 5);
-INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(115, 5659, '1', NULL, 6);
+INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(115, 5659, '1', NULL, 4);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(124, 5667, '2', NULL, 4);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(130, 5663, '3', NULL, 3);
 INSERT INTO Operation(Id,OperationTypeId,BOOId, NextOp,ExpectedTime) VALUES(163, 5661, '5', 164, 3);
