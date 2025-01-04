@@ -15,3 +15,19 @@ UPDATE BOO
 UPDATE BOO
     SET ProductId = 'PN12344A21'
     WHERE Id = '1';
+--Delete and update actions to restore the data
+DELETE FROM OperationInput
+WHERE OperationId = '100'
+AND PartId = 'AS12946S22'
+AND Quantity = '1'
+AND MeasurementUnitId = '5';
+
+DELETE FROM OperationInput
+WHERE OperationId = '100'
+AND PartId = 'AS12947S22'
+AND Quantity = '1'
+AND MeasurementUnitId = '5';
+
+UPDATE BOO
+SET ProductId = 'AS12946S22'
+WHERE Id = '1';
