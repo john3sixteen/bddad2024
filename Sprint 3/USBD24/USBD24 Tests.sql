@@ -1,8 +1,8 @@
---1st Test AS12946S22 is the final product of the BOO that has the operation with Id 100;
+--1st Test AS12946S22 is the final product of the BOO that has the operation with Id 100 - Should give an error;
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('100', 'AS12946S22', '1', '5');
---2nd Test AS12947S22 is the final product of a different BOO;
+--2nd Test AS12947S22 is the final product of a different BOO - Should be successful;
 INSERT INTO OperationInput(OperationId,PartId,Quantity,MeasurementUnitId) VALUES('100', 'AS12947S22', '1', '5');
---3rd Test Change the BOO final product to a different product that is not an input of one of its operations;
+--3rd Test Change the BOO final product to a different product that is not an input of one of its operations - Should be successful;
 UPDATE BOO
     SET ProductId = 'AS12945S20'
     WHERE Id = '1';

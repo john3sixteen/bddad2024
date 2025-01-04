@@ -8,10 +8,9 @@ CREATE OR REPLACE TRIGGER validateOperatationInput
 BEGIN
     SELECT COUNT(*) INTO BOOproduct
         FROM Operation
-        INNER JOIN BOO 				ON Operation.BOOId 	= BOO.Id
-        INNER JOIN OperationInput 	ON Operation.Id 	= OperationInput.OperationId
+        INNER JOIN BOO ON Operation.BOOId 	= BOO.Id
         WHERE Operation.Id = :new.OperationId
-        AND OperationInput.PartId = BOO.ProductId;
+        AND :new.PartId = BOO.ProductId;
 
     IF (BOOproduct > 0) THEN
         RAISE ERROR;
