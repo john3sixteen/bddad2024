@@ -6,7 +6,7 @@ CREATE OR REPLACE TRIGGER validateOperatationInput
     ERROR EXCEPTION;
 
 BEGIN
-    SELECT COUNT(*)
+    SELECT COUNT(*) INTO BOOproduct
         FROM Operation
         INNER JOIN BOO ON Operation.BOOId = BOO.Id
         WHERE Operation.Id = :new.OperationId;
